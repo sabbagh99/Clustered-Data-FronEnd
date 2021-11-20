@@ -1,0 +1,60 @@
+<router-outlet></router-outlet>
+<div align='center'>
+  <h3>All Deals</h3>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()" >
+  <input class="search-field location" type="number" formControlName="id" placeholder="Search for deal by ID" name="id" 
+  id="id">
+  <button class="search-btn">search</button>
+
+</form>
+<div style="display: grid;">
+  <table class="styled-table">
+    <thead>
+      <tr class="active-row">
+        <th>ID</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th>Created At</th>
+        <th>Deal Amount</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="active-row" *ngFor="let deals of deals">
+          <td>
+            {{deals.id}}
+          </td>
+          <td>
+            {{deals.fromCurrency}}
+          </td>
+          <td>
+            {{deals.toCurrency}}
+          </td>
+          <td>
+            {{deals.createdAt }}
+          </td>
+          <td>
+            {{deals.dealAmount +" "+deals.fromCurrency}}
+          </td>
+        </tr>
+        <tr class="active-row"  *ngIf="isOneDeal" >
+          <td>
+            {{deal.id}}
+          </td>
+          <td>
+            {{deal.fromCurrency}}
+          </td>
+          <td>
+            {{deal.toCurrency}}
+          </td>
+          <td>
+            {{deal.createdAt}}
+          </td>
+          <td>
+            {{deal.dealAmount +" "+deal.fromCurrency}}
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

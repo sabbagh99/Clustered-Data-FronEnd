@@ -1,0 +1,29 @@
+
+<div class="header">
+  
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <h2 >Add New Deal</h2>
+
+    <div class="form-box">
+      <label for="fromCurrency">From Currency:</label>
+      <select class="search-field business" formControlName="fromCurrency" name="fromCurrency" id="fromCurrency">
+        <option selected="" value=""></option>
+        <option [ngValue]="c.name" *ngFor="let c of currencyList">
+          {{c.name}}
+        </option>
+      </select>
+      <label for="toCurrency">To Currency:</label>
+      <select class="search-field business"  formControlName="toCurrency" name="toCurrency" id="toCurrency">
+        <option selected="" value=""></option>
+        <option  [ngValue]="c.name" *ngFor="let c of currencyList">
+          {{c.name}}
+        </option>
+      </select>
+      <input class="search-field location" type="number" formControlName="dealAmount" placeholder="Deal Amount" name="dealAmount" 
+        id="dealAmount">
+    
+    
+    <button class="search-btn">Add</button>
+  </div>
+  </form>
+</div>
